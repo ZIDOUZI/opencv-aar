@@ -72,6 +72,7 @@ jobs:
             --sdk_path $ANDROID_SDK_ROOT \
             --ndk_path $MY_NDK_PATH \
             --extra_modules_path opencv_contrib \
+            --config opencv/platforms/android/android_config.py \
             --no_samples_build \
             build_android \
             opencv
