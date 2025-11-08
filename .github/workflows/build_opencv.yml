@@ -61,12 +61,16 @@ jobs:
         id: build
         run: |
           echo "Building OpenCV version ${{ steps.get_version.outputs.version }}..."
-          echo "NDK Path: $ANDROID_NDK_HOME"
-          echo "SDK Path: $ANDROID_SDK_ROOT"
-
+          MY_NDK_PATH="$ANDROID_SDK_ROOT/ndk/25.2.9519653"
+          MY_CMAKE_BIN_PATH="$ANDROID_SDK_ROOT/cmake/3.22.1/bin"
+          echo "Using SDK Path: $ANDROID_SDK_ROOT"
+          echo "Forcing NDK Path: $MY_NDK_PATH"
+          echo "Forcing CMake Path: $MY_CMAKE_BIN_PATH"
+          export PATH="$MY_CMAKE_BIN_PATH:$PATH"
+          cmake --version
           python3 opencv/platforms/android/build_sdk.py \
             --sdk_path $ANDROID_SDK_ROOT \
-            --ndk_path $ANDROID_NDK_HOME \
+            --ndk_path $MY_NDK_PATH \
             --extra_modules_path opencv_contrib \
             --no_samples_build \
             build_android \
