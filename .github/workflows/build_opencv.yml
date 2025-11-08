@@ -62,10 +62,10 @@ jobs:
             --sdk_path $ANDROID_SDK_ROOT \
             --ndk_path $ANDROID_NDK_HOME \
             --config Release \
-            --build_dir build_android \
-            --opencv_dir opencv \
-            --contrib_path opencv_contrib \
-            --no_samples_build
+            --extra_modules_path opencv_contrib \
+            --no_samples_build \
+            build_android \
+            opencv
 
       - name: 8. Find the AAR file
         id: find_aar
