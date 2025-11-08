@@ -61,7 +61,6 @@ jobs:
           python3 opencv/platforms/android/build_sdk.py \
             --sdk_path $ANDROID_SDK_ROOT \
             --ndk_path $ANDROID_NDK_HOME \
-            --config Release \
             --extra_modules_path opencv_contrib \
             --no_samples_build \
             build_android \
